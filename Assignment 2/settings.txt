@@ -1,0 +1,17 @@
+1. Mapper Output:
+	Keys: Text (The first word of the two word string.)
+	Values: Text (The second word of the two word string.)
+
+2. Reducer Output:
+	Keys: Text (The two word string seperated by space.)
+	Values: Text (Double value of the rank.)
+	Notes: The reduces ony outputs the first 100 key value pairs with the maximum Value.
+3. Basic VM Settings Config:
+	CPU:  Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+	Architecture:  x86_64
+	Core(s) per socket: 1
+	RAM: 1GB
+	Swap: 10GB
+4. No of VM's in Distributed Mode: 4
+5. Time take in pseudo distributed mode: 6922
+6. Time take in fully distributed mode: 8018

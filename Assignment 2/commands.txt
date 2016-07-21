@@ -1,0 +1,60 @@
+sudo distributed mode.
+
+wget https://web.njit.edu/~chasewu/Courses/Fall2015/CS698BigData/HW/100KWikiText.txt
+mv 100KWikiText.txt input.txt
+./start.sh
+cd hadoop 
+./bin/hadoop dfs -put ../input.txt /input/input.txt
+./sanitize.sh
+./bin/hadoop jar ../Assignment2.jar CountPairs /input/input.txt /output
+./bin/hadoop dfs -cat /output/p*
+./bin/hadoop dfs -cat /output/p* > ../output.txt
+
+NOTE ./start.sh & ./sanitize.sh are scripts i made contents of which are the following
+
+start.sh starts here
+
+sudo mkswap /dev/sdb
+sudo swapon /dev/sdb
+cd hadoop
+./sbin/start-all.sh
+
+start.sh ends here
+
+sanitize.sh starts here
+
+./bin/hadoop dfs -rm -r /output
+clear
+
+sanitize.sh ends here
+
+For Distributed Mode
+
+./start.sh
+./bin/hadoop dfs -put ../input.txt /input/input.txt
+./sanitize.sh
+./bin/hadoop jar ../Assignment2.jar CountPairs /input/input.txt /output
+./bin/hadoop dfs -cat /output/p*
+./bin/hadoop dfs -cat /output/p* > ../output.txt
+
+NOTE ./start.sh & ./sanitize.sh are scripts i made contents of which are the following
+
+start.sh starts here
+
+sudo mkswap /dev/sdb
+sudo swapon /dev/sdb
+ssh -t ec2-user@slave1 sudo swapon /dev/sdb
+ssh -t ec2-user@slave2 sudo mkswap /dev/sdf
+ssh -t ec2-user@slave2 sudo swapon /dev/sdf
+ssh -t ec2-user@slave3 sudo mkswap /dev/sdb
+ssh -t ec2-user@slave3 sudo swapon /dev/sdb
+./hadoop/sbin/start-all.sh
+
+start.sh ends here
+
+sanitize.sh starts here
+
+./bin/hadoop dfs -rm -r /output
+clear
+
+sanitize.sh ends here

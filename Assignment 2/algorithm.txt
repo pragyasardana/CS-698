@@ -1,0 +1,13 @@
+Mpper: 
+
+1. Sanitize the line. make sure it contains only letters 'a' to 'z', 'A' to 'Z', and spaces.
+2. Convert the line into lower case.
+3. Split the line by space.
+4. give two adjasent words to the reducer.
+
+Reducer:
+
+1. Count each distinct values and the total number of values in the Iterator.
+2. Create the word rank.
+3. Put the word rank into a public map and sort it.
+4. Write the first 100 words of the map.

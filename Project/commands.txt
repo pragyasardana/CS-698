@@ -1,0 +1,3 @@
+$oozie job -oozie http://localhost:11000/oozie -config myworkflow/job.properties -run
+
+$oozie job -oozie http://localhost:11000/oozie -info <job id here>
